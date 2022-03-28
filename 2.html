@@ -77,13 +77,22 @@
     ],
   };
 
-  const productsEl = document.querySelector('products');
+  const productsEl = document.querySelector('.products');
   document.querySelector('header').addEventListener('click', event => {
-    if (!event.currentTarget.classList.contains('.menuButton')) {
+    if (!event.target.classList.contains('menuButton')) {
       return;
     }
-    productsEl.innerHTML = products[event.currentTarget.dataset.type]
-      .map(product => product.getProductMarkup());
+    productsEl.innerHTML = `<div class="product">
+      <div> здарова </div>
+    </div>`;
+    //productsEl.innerHTML = products[event.target.dataset.type].map(product => product.getProductMarkup());
+    console.log(event.target.getAttribute('data-type'));
+    const targetProducts = products[event.target.getAttribute('data-type')];
+    for (const el of targetProducts) {
+      console.log(el);
+      el.getProductMarkup();
+    }
+    
   });
 
 </script>
