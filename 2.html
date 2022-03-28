@@ -48,14 +48,14 @@
      * @returns {string} html-разметка для товара
      */
     getProductMarkup() {
-      return `
-        <div class="product">
+      return 
+        `<div class="product">
             <div>${name}</div>
-            <img src="${imageUrl}" alt="">
+            <img src="${imageUrl}" alt=""></img>
             <div>Цена: <span>${price}</span> р.</div>
             <a href="https://example.com/producs/${id}">Подробнее</a>
-        </div>
-      `;
+        </div>`
+      ;
     }
   }
 
@@ -77,6 +77,7 @@
     ],
   };
 
+  console.log(products.phones[1]);
   const productsEl = document.querySelector('products');
   document.querySelector('header').addEventListener('click', event => {
     if (!event.currentTarget.classList.contains('.menuButton')) {
